@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Letter Across The Stars 🌌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Latar bintang + bulan, tampil di semua scene -->
+  <div id="stars-bg" class="stars-bg"></div>
+
+  <!-- Audio, belum diputar otomatis -->
+  <audio id="bg-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="music-toggle" class="music-toggle" aria-label="putar musik">🎵</button>
+
+  <div id="app">
+
+    <!-- ================= SCENE 1 : LANDING ================= -->
+    <section class="scene active" id="scene-1" data-scene="1">
+      <div class="moon">🌙</div>
+      <p class="eyebrow">✨ A Letter Across The Stars ✨</p>
+      <h1 class="glow-title">Happy 2nd Anniversary</h1>
+
+      <div class="names">
+        <span class="name">Zainurrahman</span>
+        <span class="heart-icon">❤</span>
+        <span class="name">Indigo Mutiara</span>
+      </div>
+
+      <p class="quote">
+        Two years.<br>
+        Countless memories.<br>
+        One favorite person.
+      </p>
+
+      <div class="divider"></div>
+
+      <button class="btn-glow" id="btn-mulai">Mulai</button>
+    </section>
+
+    <!-- ================= SCENE 2 : LOADING MEMORIES ================= -->
+    <section class="scene" id="scene-2" data-scene="2">
+      <p class="loading-label">Loading Memories...</p>
+      <p class="loading-percent" id="loading-percent">0%</p>
+      <p class="hai-adek hidden" id="hai-adek">Hai Adek...</p>
+    </section>
+
+    <!-- ================= SCENE 3 : AMPLOP ================= -->
+    <section class="scene" id="scene-3" data-scene="3">
+      <p class="scene-hint" id="envelope-hint">pencet lopenya >_<</p>
+      <div id="envelope" class="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body"></div>
+        <div class="heart-seal">❤</div>
+        <div class="paper" id="paper"></div>
+      </div>
+      <button class="btn-glow hidden" id="btn-baca-surat">Baca Surat</button>
+    </section>
+
+    <!-- ================= SCENE 4 : SURAT ================= -->
+    <section class="scene" id="scene-4" data-scene="4">
+      <div class="letter-box">
+        <p class="typewriter-text" id="typewriter-text"></p>
+        <span class="cursor-blink" id="cursor-blink">|</span>
+      </div>
+      <div class="letter-actions">
+        <button class="btn-outline" id="btn-skip">Lewati Animasi ⏩</button>
+        <button class="btn-glow hidden" id="btn-lihat-kenangan">Lihat Kenangan Kita 📸</button>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 5 : GALERI ================= -->
+    <section class="scene" id="scene-5" data-scene="5">
+      <h2 class="scene-title">Kenangan Kita</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <img src="images/foto1.jpg" alt="kenangan 1" class="gallery-img">
+        <img src="images/foto2.jpg" alt="kenangan 2" class="gallery-img">
+        <img src="images/foto3.jpg" alt="kenangan 3" class="gallery-img">
+        <img src="images/foto4.jpg" alt="kenangan 4" class="gallery-img">
+        <img src="images/foto5.jpg" alt="kenangan 5" class="gallery-img">
+      </div>
+      <button class="btn-glow" id="btn-ke-timeline">Lanjut</button>
+    </section>
+
+    <!-- ================= SCENE 6 : LAMA HUBUNGAN / TIMELINE ================= -->
+    <section class="scene" id="scene-6" data-scene="6">
+      <h2 class="scene-title">Perjalanan Kita</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-icon">🌱</span>
+          <span class="timeline-date">30 Juli 2024</span>
+          <span class="timeline-desc">Hari kita memulai semuanya.</span>
+        </div>
+        <div class="timeline-arrow">↓</div>
+        <div class="timeline-item">
+          <span class="timeline-icon">☕</span>
+          <span class="timeline-desc">Kencan pertama</span>
+        </div>
+        <div class="timeline-arrow">↓</div>
+        <div class="timeline-item">
+          <span class="timeline-icon">❤</span>
+          <span class="timeline-desc"><span id="days-number">0</span> hari bersama</span>
+        </div>
+        <div class="timeline-arrow">↓</div>
+        <div class="timeline-item">
+          <span class="timeline-icon">∞</span>
+          <span class="timeline-desc">Masih banyak cerita lagi...</span>
+        </div>
+      </div>
+      <button class="btn-glow" id="btn-ke-pesan">Lanjut</button>
+    </section>
+
+    <!-- ================= SCENE 7 : PESAN TERAKHIR ================= -->
+    <section class="scene" id="scene-7" data-scene="7">
+      <div class="final-message" id="final-message">
+        <p class="fade-line" data-order="1">Terima kasih sudah menjadi Indigo yang selalu abang banggakan.</p>
+        <p class="fade-line cursive" data-order="2">Love You</p>
+        <p class="fade-line cursive" data-order="3">Always</p>
+        <p class="fade-line cursive" data-order="4">-Abang-</p>
+      </div>
+      <button class="btn-glow hidden" id="btn-ke-ending">❤️</button>
+    </section>
+
+    <!-- ================= SCENE 8 : HUJAN HATI + PENUTUP ================= -->
+    <section class="scene" id="scene-8" data-scene="8">
+      <div id="heart-rain" class="heart-rain"></div>
+      <div class="ending-text">
+        <p>Maukah adek untuk selalu menjadi</p>
+        <p>Rumah yang teduh untuk abang pulang? </p>
+        <p class="cursive big">Love You, Always.</p>
+        <p class="signature">-Abang-</p>
+      </div>
+      <button class="btn-outline" id="btn-replay">Mulai dari awal</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
